@@ -1,6 +1,7 @@
 const fs = require('fs');
+const http = require('http');
 
-
+/*
 // Blocking, synchronous way
 const textIn = fs.readFileSync('./txt/input.txt', 'utf-8');
 console.log(textIn);
@@ -23,3 +24,13 @@ console.log('File has been written');
  });
 
  console.log('Will read file');
+ */
+
+
+// SERVER
+
+const server = http.createServer( (req, res) => {
+   res.end('Hello from the server!');
+});
+
+server.listen(8000, '127.0.0.1');
