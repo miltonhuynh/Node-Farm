@@ -1,5 +1,6 @@
 const fs = require('fs');
 const http = require('http');
+const url = require('url');
 
 /*
 // Blocking, synchronous way
@@ -30,6 +31,14 @@ console.log('File has been written');
 // SERVER
 
 const server = http.createServer( (req, res) => {
+  const pathName = req.url;
+  
+  if(pathName === '/' || pathName === '/overview') {
+    res.end('This is the OVERVIEW');
+  } else if (pathName === '/product') {
+    res.end('This is the PRODUCT');
+  }
+  
    res.end('Hello from the server!');
 });
 
